@@ -1,11 +1,12 @@
-import React from 'react'
-import Tour from './Tour';
-import './Tours.css';
+import React from "react";
+import Tour from "./Tour";
+import "./Tours.css";
 
-export default function Tours() {
+export default function Tours({ tours }) {
   return (
-    <div className='title'>
-        <h2>Our Tours</h2>
-        </div>
-  )
+    <div className="title">
+      <h2>Our Tours</h2>
+      <div className="line"></div>
+    </div>
+  );
 }
