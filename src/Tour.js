@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./Tour.css";
 
-export default function Tour({ id, image, info, name, price }) {
+export default function Tour({ id,image,info,name,price,removeTour}) {
 
 const [readMore,setReadMore] = useState(false)
 
@@ -21,7 +21,7 @@ const [readMore,setReadMore] = useState(false)
     {readMore ? `show less` : `read more`}
 </button>
             </p>
-        <button className="delete-btn">
+        <button className="delete-btn" onClick={()=> removeTour(id)}>
             not interested
             </button>
       </footer>

@@ -34,10 +34,20 @@ function App() {
   if (loading) {
     return <Loading />;
   }
+  if (tours.length === 0) {
+    return (
+      <main>
+        <div className="refresh-title">
+          <h2>No Tours Left</h2>
+          <button onClick={() => fetchTours()}>refresh</button>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <div className="App">
-      <Tours tours={tours}  removeTour={removeTour}/>
+      <Tours tours={tours} removeTour={removeTour} />
     </div>
   );
 }
