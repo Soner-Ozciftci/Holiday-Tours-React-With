@@ -1,18 +1,29 @@
-import React , {useState,useEffect} from 'react';
-import './App.css';
-import Loading from './Loading';
-import Tours from './Tours';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Loading from "./Loading";
+import Tours from "./Tours";
 
-const url = 'https://course-api.com/react-tours-project';
-
-
+const url = "https://course-api.com/react-tours-project";
 
 function App() {
-  return (
-    <div className="App">
+  const [loading, setLoading] = useState(true);
+  const [tours, setTours] = useState([]);
 
+  const fetchTours = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(url);
+      const tours = await response.json();
+      setLoading(false);
+      setTours(tours);
+    } catch (error) {}
+  };
+
+  return(
+   <div className="App">
+    hello
     </div>
-  );
+    )
 }
 
 export default App;
