@@ -16,14 +16,25 @@ function App() {
       const tours = await response.json();
       setLoading(false);
       setTours(tours);
-    } catch (error) {}
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
   };
 
-  return(
-   <div className="App">
-    hello
-    </div>
-    )
-}
+  useEffect(()=>{
+    fetchTours();
+  },[])
+
+  if (loading){
+    return (
+    <Loading />
+  )}
+
+  return (
+  <div className="App">
+    < Tours />
+  </div>
+  )}
 
 export default App;
