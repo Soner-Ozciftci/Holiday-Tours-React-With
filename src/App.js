@@ -9,6 +9,11 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [tours, setTours] = useState([]);
 
+  const removeTour = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  };
+
   const fetchTours = async () => {
     setLoading(true);
     try {
@@ -22,19 +27,19 @@ function App() {
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchTours();
-  },[])
+  }, []);
 
-  if (loading){
-    return (
-    <Loading />
-  )}
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
-  <div className="App">
-    < Tours tours={tours}/>
-  </div>
-  )}
+    <div className="App">
+      <Tours tours={tours}  removeTour={removeTour}/>
+    </div>
+  );
+}
 
 export default App;
